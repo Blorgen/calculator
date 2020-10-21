@@ -13,6 +13,25 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         var resultNumber: Int = result.text.toString().toInt()
 
+        button_sum.setOnClickListener {
+            when(the_operator.text) {
+                "+" -> {edit_text.text = (start.toInt() + resultNumber).toString()
+                    resultNumber = 0
+                    result.text = resultNumber.toString()}
+                "-" -> {edit_text.text = (resultNumber - start.toInt()).toString()
+                    resultNumber = 0
+                    result.text = resultNumber.toString()}
+                "/" -> {
+                    edit_text.text = (resultNumber / start.toInt()).toDouble().toString()
+                    resultNumber = 0
+                    result.text = resultNumber.toString() }
+                "*" -> {edit_text.text = (resultNumber * start.toInt().toDouble()).toString()
+                    resultNumber = 0
+                    result.text = resultNumber.toString()}
+
+            }
+        }
+
         button_plus.setOnClickListener {
             resultNumber += start.toInt()
             result.text = resultNumber.toString()
